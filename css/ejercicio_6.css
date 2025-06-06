@@ -47,7 +47,7 @@
 }
 
 .tecla.cero {
-  grid-column: 1 / span 2; /* El botón cero ocupa 2 columnas */
+  grid-column: 1 / span 2; 
 }
 
 .tecla.igual {
