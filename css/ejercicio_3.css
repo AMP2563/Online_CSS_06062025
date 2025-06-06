@@ -1,0 +1,17 @@
+ul {
+    padding-left: 70px;
+    color: green;
+    list-style-type: square;
+    
+}
+
+ol {
+    padding-left: 70px;
+    color: rgb(155, 23, 23);
+    list-style-type: upper-roman;
+    
+}
+
+li:first-child {
+    color:rgb(131, 4, 250)
+} 

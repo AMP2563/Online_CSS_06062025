@@ -1,0 +1,12 @@
+* {
+    width: 90%;
+    margin: auto;
+}
+p {
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: justify;
+    text-indent: 20px;
+    line-height:1.6;
+    color: rgb(139, 128, 128);
+    margin-top: 10px;
+}
