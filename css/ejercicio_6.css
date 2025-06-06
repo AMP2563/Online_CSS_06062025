@@ -1,0 +1,77 @@
+.calculadora {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px repeat(4, 1fr);
+    gap: 1px;
+    width: 420px;
+    margin: 100px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 6px blue;
+    overflow: hidden;
+}
+
+.pantalla {
+    grid-column: span 1 / 5;
+    /* background-color: black; */
+    color: white;
+    font-size: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+.tecla {
+    background-color: #0f0f0f;
+    border: 1px solid white;
+    padding: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: white;
+    border-radius: 8px;
+}
+
+.tecla:hoover {
+    background-color: #e0e0e0;
+}
+
+.tecla.operador {
+    background-color: orange;
+    color: white;
+}
+
+.tecla.operador:hover {
+  background-color: darkorange;
+}
+
+.tecla.cero {
+  grid-column: 1 / span 2; /* El botón cero ocupa 2 columnas */
+}
+
+.tecla.igual {
+  display: flex; /* Asegura que el contenido se centre si el botón es un div, no un button */
+  justify-content: center;
+  align-items: center;
+} 
+
+
+/* display: grid;: Convierte el contenedor en una cuadrícula.
+
+grid-template-columns: repeat(4, 1fr);: Esto es crucial. Le dice a Grid que quieres 4 columnas,
+y 1fr significa que todas tendrán una fracción igual del espacio disponible.
+
+grid-template-rows: 100px repeat(5, 1fr);: Esto define 6 filas en total. 
+La primera fila (para la pantalla) tendrá 100px de altura. 
+Las siguientes 5 filas (para los teclaes) compartirán el resto del espacio vertical de manera equitativa.
+
+gap: 1px;: Crea un pequeño espacio entre las celdas de la cuadrícula, dándole el aspecto de teclaes separados.
+
+grid-column: 1 / span 5; (para la pantalla): Esto es lo que permite que un elemento ocupe
+varias columnas. 1 es la columna de inicio, y span 4 significa que se extenderá por 4 columnas.
+
+grid-column: 1 / span 2; (para el botón cero): Similar a la pantalla, este botón ocupa 2 columnas.
+
+grid-row: span 2; (para el botón igual): Este botón ocupa 2 filas, es decir, el espacio de su propia
+fila más la siguiente. Por defecto, su columna será la que le corresponda por orden. */
