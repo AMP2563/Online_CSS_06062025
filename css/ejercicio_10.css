@@ -1,0 +1,194 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa; 
+    color: #333;
+}
+
+/* Encabezado */
+.header {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    color: #0059ff;
+    margin: 0 0 10px;
+    font-size: 2.8em;
+}
+
+.header p {
+    font-size: 1.2em;
+    color: #634444;
+}
+
+/* Contenedor principal del CV con CSS Grid */
+.cv-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: start;
+}
+
+/* Estilos generales para las secciones */
+section {
+    padding: 20px 0;
+}
+
+
+.img {
+    display: flex;
+    align-items: flex-start;
+    width: 70px;
+    height: 70px;
+}
+
+h3 {
+    color: #007bff; 
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff; 
+    padding-bottom: 5px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+ul li::before {
+    content: '⚙️'; 
+    color: #007bff; 
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* (Columna izquierda) */
+.barra-lateral {
+    background-color: #f8f9fa; 
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.barra-lateral .info-contacto,
+.barra-lateral .habilidades {
+    margin-bottom: 25px;
+}
+
+.barra-lateral .info-contacto p {
+    font-size: 0.95em;
+}
+
+/* Contenido Principal (Columna derecha) */
+.cont-principal .blq-seccion {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #e0e0e0; /* Separador sutil */
+}
+
+.cont-principal .blq-seccion:last-child {
+    border-bottom: none; /* Elimina el borde del último bloque */
+}
+
+/* Entradas de Experiencia y Educación con Flexbox */
+.curros, .estudios {
+    margin-bottom: 20px;
+}
+
+.curros h4, .estudios h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.25em;
+}
+
+.curros .date, .estudios .date {
+    font-size: 0.9em;
+    color: #666; 
+    margin-bottom: 10px;
+    display: block; /* Asegura que la fecha esté en su propia línea */
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666; 
+}
+
+/* --- Media Query para Responsiv --- */
+@media (max-width: 768px) {
+    .cv-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    .barra-lateral {
+        padding: 15px;
+    }
+
+    .cont-principal .blq-seccion {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 20px 10px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+}

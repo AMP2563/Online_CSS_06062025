@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); 
+    grid-template-rows: repeat(9, 1fr);   
+    width: min(90vw, 540px); 
+    height: min(90vw, 540px); 
+    border: 3px solid black; 
+    box-sizing: border-box; 
+    background-color: white; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.sudoku-cell {
+    /* Estilos base para todas las celdas */
+    border: 1px solid #ccc; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    font-size: 1.8em;      
+    box-sizing: border-box; 
+    user-select: none;     
+    cursor: default;       
+}
+
+/* -------------------------------------- */
+/* BORDES GRUESOS CADA 3 FILAS/COLUMNAS */
+/* -------------------------------------- */
+
+.sudoku-cell:nth-child(9n+3),
+.sudoku-cell:nth-child(9n+6) {
+    border-right-width: 3px;
+    border-right-color: black;
+}
+
+/* Bordes horizontales gruesos: Aplica a las celdas en las filas 3 y 6 */
+.sudoku-cell:nth-child(n+19):nth-child(-n+27), /* Selecciona todas las celdas en la 3ra fila */
+.sudoku-cell:nth-child(n+46):nth-child(-n+54) { /* Selecciona todas las celdas en la 6ta fila */
+    border-bottom-width: 3px;
+    border-bottom-color: black;
+}
+
+/* Esto asegura que el borde exterior del .sudoku-board sea el único borde derecho para la última columna */
+.sudoku-cell:nth-child(9n) {
+    border-right-width: 1px; /* Restablecer a 1px para la 9ª columna */
+    border-right-color: #ccc;
+}
+
+/* Esto asegura que el borde exterior del .sudoku-board sea el único borde inferior para la última fila */
+.sudoku-cell:nth-child(n+73):nth-child(-n+81) { /* Celdas en la 9ª fila (73 a 81) */
+    border-bottom-width: 1px; /* Restablecer a 1px para la 9ª fila */
+    border-bottom-color: #ccc;
+}
+
+
+/* ---------------------------------------- */
+/* COLOREAR CELDAS VÁLIDAS/ERRÓNEAS (DEMO) */
+/* ---------------------------------------- */
+
+/* Celdas "válidas" (ejemplo estático) */
+.sudoku-cell:nth-child(1) { background-color: #d4edda; } /* Celda 1 */
+.sudoku-cell:nth-child(25) { background-color: #d4edda; } /* Celda central del bloque superior-medio */
+.sudoku-cell:nth-child(48) { background-color: #d4edda; } /* Celda en la 6ta fila, 3ra columna */
+
+/* Celdas "erróneas" (ejemplo estático) */
+.sudoku-cell:nth-child(5) { background-color: #f8d7da; } /* Celda 5 */
+.sudoku-cell:nth-child(10) { background-color: #f8d7da; } /* Celda 10 (fila 2, col 1) */
+.sudoku-cell:nth-child(77) { background-color: #f8d7da; } /* Celda 77 (fila 9, col 5) */
+
+/* Resaltar celdas en bloques alternos para un diseño clásico de Sudoku (opcional) */
+/* Este es un patrón un poco más avanzado con nth-child para simular bloques */
+/* Oscurece el fondo de los bloques impares (1,3,5,7,9) visualmente */
+.sudoku-cell:nth-child(-n+9):nth-child(odd), /* Fila 1, celdas impares */
+.sudoku-cell:nth-child(n+10):nth-child(-n+18):nth-child(even), /* Fila 2, celdas pares */
+.sudoku-cell:nth-child(n+19):nth-child(-n+27):nth-child(odd), /* Fila 3, celdas impares */
+
+.sudoku-cell:nth-child(n+28):nth-child(-n+36):nth-child(even), /* Fila 4, celdas pares */
+.sudoku-cell:nth-child(n+37):nth-child(-n+45):nth-child(odd), /* Fila 5, celdas impares */
+.sudoku-cell:nth-child(n+46):nth-child(-n+54):nth-child(even), /* Fila 6, celdas pares */
+
+.sudoku-cell:nth-child(n+55):nth-child(-n+63):nth-child(odd), /* Fila 7, celdas impares */
+.sudoku-cell:nth-child(n+64):nth-child(-n+72):nth-child(even), /* Fila 8, celdas pares */
+.sudoku-cell:nth-child(n+73):nth-child(-n+81):nth-child(odd) /* Fila 9, celdas impares */
+{
+ /* background-color: #e9e9e9;  Descomenta para ver el efecto de bloques alternos */
+}
